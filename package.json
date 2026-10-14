@@ -1,0 +1,27 @@
+{
+  "name": "advisors-site",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 0.0.0.0",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "astro build && alchemy deploy"
+  },
+  "overrides": {
+    "effect": "4.0.0-beta.102",
+    "@effect/platform-node-shared": "4.0.0-beta.107"
+  },
+  "dependencies": {
+    "astro": "5.14.5",
+    "cuelume": "0.2.4",
+    "posthog-js": "1.410.6"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "5.20260804.1",
+    "@effect/platform-bun": "4.0.0-beta.102",
+    "@effect/platform-node": "4.0.0-beta.102",
+    "alchemy": "2.0.0-beta.70",
+    "effect": "4.0.0-beta.102",
+    "typescript": "5.9.3"
+  }
+}

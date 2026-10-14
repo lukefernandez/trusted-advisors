@@ -1,0 +1,27 @@
+[install]
+# Exact pins: no ^ or ~ ranges land in package.json.
+exact = true
+# Supply-chain guard: refuse to install package versions published less than
+# 7 days ago. Freshly published releases are the window where compromised
+# packages (e.g. the Aug 2026 ChainDrop npm worm) do their damage.
+minimumReleaseAge = 604800
+# Alchemy and its bundler plugins ship from a fast-moving prerelease
+# channel; their pinned versions are younger than the gate. Deliberate
+# exception, revisit when it stabilizes.
+minimumReleaseAgeExcludes = [
+  "alchemy",
+  "effect",
+  "@effect/platform",
+  "@effect/platform-bun",
+  "@effect/platform-node",
+  "@effect/platform-node-shared",
+  "@distilled.cloud/aws",
+  "@distilled.cloud/axiom",
+  "@distilled.cloud/cloudflare",
+  "@distilled.cloud/cloudflare-runtime",
+  "@distilled.cloud/cloudflare-vite-plugin",
+  "@distilled.cloud/cloudflare-rolldown-plugin",
+  "@distilled.cloud/core",
+  "@distilled.cloud/neon",
+  "@distilled.cloud/planetscale",
+]

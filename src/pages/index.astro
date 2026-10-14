@@ -1,0 +1,182 @@
+---
+const ADVISORS = [
+  {
+    name: "Startup Mentor",
+    initials: "SM",
+    figure: "/startup-mentor-full.jpg",
+    description:
+      "Helps founders make something people want, talk to users, and grow from zero. Inspired by the work of Paul Graham.",
+    href: "#TODO-startup-mentor-template-link",
+    skill: "https://github.com/lukefernandez/trusted-advisors/tree/main/skills/startup-mentor",
+  },
+  {
+    name: "Growth Coach",
+    initials: "GC",
+    image: "/growth-coach.png",
+    figure: "/growth-coach-full.jpg",
+    description:
+      "Helps business owners grow their businesses, build better offers, and make more sales. Inspired by the work of Alex Hormozi.",
+    href: "#TODO-growth-coach-template-link",
+    skill: "https://github.com/lukefernandez/trusted-advisors/tree/main/skills/growth-coach",
+  },
+  {
+    name: "Product Visionary",
+    initials: "PV",
+    figure: "/product-visionary-full.jpg",
+    description:
+      "Helps founders build products people love through taste, focus, and saying no to almost everything. Inspired by the work of Steve Jobs.",
+    href: "#TODO-product-visionary-template-link",
+    skill: "https://github.com/lukefernandez/trusted-advisors/tree/main/skills/product-visionary",
+  },
+  {
+    name: "First Principles Thinker",
+    initials: "FP",
+    figure: "/first-principles-full.jpg",
+    description:
+      "Helps founders break hard problems down to the fundamentals and rebuild bold, better solutions. Inspired by the work of Elon Musk.",
+    href: "#TODO-first-principles-template-link",
+    skill: "https://github.com/lukefernandez/trusted-advisors/tree/main/skills/first-principles-thinker",
+  },
+  {
+    name: "Modern Philosopher",
+    initials: "MP",
+    figure: "/leverage-coach-full.jpg",
+    description:
+      "Helps you build wealth without getting lucky, make better decisions, and find peace along the way. Inspired by the work of Naval Ravikant.",
+    href: "#TODO-leverage-coach-template-link",
+    skill: "https://github.com/lukefernandez/trusted-advisors/tree/main/skills/modern-philosopher",
+  },
+  {
+    name: "Comms Strategist",
+    initials: "CS",
+    figure: "/comms-strategist-full.jpg",
+    description:
+      "Helps leaders go direct, tell their own story, and win the narrative without relying on the press. Inspired by the work of Lulu Cheng Meservey.",
+    href: "#TODO-comms-strategist-template-link",
+    skill: "https://github.com/lukefernandez/trusted-advisors/tree/main/skills/comms-strategist",
+  },
+];
+---
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trusted Advisors</title>
+<meta name="description" content="AI advisors that give great business advice">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style is:global>
+  :root { --bg:#fff; --text:#0a0a0a; --muted:#6b6b6b; --border:#e8e8e8; --soft:#f5f5f5; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.5 "Geist",ui-sans-serif,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:1040px; margin:0 auto; padding:0 24px; }
+  header .wrap { height:72px; display:flex; align-items:center; justify-content:center; }
+  .brand { display:inline-flex; align-items:center; gap:10px; font-family:"EB Garamond",Georgia,serif; font-weight:500; font-size:21px; letter-spacing:.005em; text-decoration:none; color:inherit; }
+  .brand img { width:30px; height:30px; display:block; }
+  .hero { padding:72px 0 48px; text-align:center; display:flex; flex-direction:column; align-items:center; }
+  h1 { font-family:"EB Garamond",Georgia,serif; font-size:clamp(30px,4.8vw,46px); line-height:1.05; letter-spacing:-0.015em; font-weight:500; margin:0; max-width:30ch; text-wrap:pretty; }
+  .lede.after { text-align:center; margin:0 auto; padding-bottom:72px; }
+  .lede { color:var(--muted); font-size:17px; max-width:56ch; margin:20px auto 0; text-wrap:pretty; }
+  .grid { display:grid; gap:40px 24px; grid-template-columns:repeat(auto-fill,minmax(440px,1fr)); padding-bottom:48px; }
+  .card { border:1px solid var(--border); border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:16px; }
+  .avatar { width:72px; height:72px; border-radius:999px; background:var(--soft); display:grid; place-items:center; font-weight:600; overflow:hidden; }
+  .avatar img { width:100%; height:100%; object-fit:cover; object-position:50% 50%; }
+  @keyframes bob { 0%,100% { transform:translateY(0) scale(1.04); } 50% { transform:translateY(-2px) scale(1.07); } }
+  @media (prefers-reduced-motion: reduce) { .avatar img { animation:none; } }
+  .card h2 { font-size:18px; font-weight:500; letter-spacing:-0.01em; margin:0; }
+  .card p { margin:0; color:var(--muted); font-size:15px; text-wrap:balance; }
+  .btn { align-self:flex-start; margin-top:4px; display:inline-flex; align-items:center; min-height:40px; padding:0 18px; border-radius:999px; background:var(--text); color:#fff; font-size:14px; font-weight:500; text-decoration:none; transition:opacity .15s; }
+  .btn:hover { opacity:.85; }
+  .btns { display:flex; flex-wrap:wrap; gap:8px; margin-top:4px; }
+  .btns .btn { margin-top:0; }
+  .btn-2 { background:#ececec; color:var(--text); }
+  .btn:focus-visible { outline:2px solid var(--text); outline-offset:3px; }
+  .card.has-figure { flex-direction:row; align-items:center; gap:20px; padding:0; border:none; }
+  .figure { width:96px; height:auto; flex:none; align-self:flex-end; }
+  .body { display:flex; flex-direction:column; gap:12px; }
+  @media (prefers-reduced-motion: reduce) { .figure { animation:none; } }
+  @media (max-width:520px) { .grid { grid-template-columns:1fr; } .figure { width:84px; } }
+  .soon { border-style:dashed; justify-content:center; align-items:center; color:var(--muted); font-size:14px; min-height:160px; }
+  .card.has-figure .figure { transform-origin:50% 100%; cursor:pointer; transition:transform 160ms cubic-bezier(0.23, 1, 0.32, 1); }
+  .card.has-figure .figure:active { transform:scale(0.97); }
+  .card { transition:opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) calc(var(--i, 0) * 60ms), translate 450ms cubic-bezier(0.23, 1, 0.32, 1) calc(var(--i, 0) * 60ms); }
+  @starting-style { .card { opacity:0; translate:0 8px; } }
+  .js .card.has-figure .figure:not(.loaded) { opacity:0; translate:0 6px; }
+  .card.has-figure .figure { transition:transform 160ms cubic-bezier(0.23, 1, 0.32, 1), opacity 400ms cubic-bezier(0.23, 1, 0.32, 1), translate 400ms cubic-bezier(0.23, 1, 0.32, 1); }
+  @media (prefers-reduced-motion: reduce) { .card, .card.has-figure .figure { transition:none; } .js .card.has-figure .figure:not(.loaded) { opacity:1; translate:none; } }
+  @media (prefers-reduced-motion: reduce) { .card.has-figure .figure { transition:none; } .card.has-figure .figure:active { transform:none; } }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="brand" href="#"><img src="/logo.svg" alt="" width="30" height="30" />Trusted Advisors</a></div></header>
+<script is:inline>document.documentElement.classList.add("js")</script>
+<main class="wrap">
+  <section class="hero">
+    <h1>Chat with some of the most impactful minds of our time.</h1>
+  </section>
+  <div class="grid">
+    {ADVISORS.map((a, i) => a.figure ? (
+      <article class="card has-figure" style={`--i:${i}`}>
+        <img class="figure" src={a.figure} alt={a.name} width="331" height="706" decoding="async" />
+        <div class="body"><h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Get this Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Get the Skill</a></div></div>
+      </article>
+    ) : (
+      <article class="card" style={`--i:${i}`}>
+        <div class="avatar">{a.image ? <img src={a.image} alt="" /> : a.initials}</div>
+        <h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Get this Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Get the Skill</a></div>
+      </article>
+    ))}
+  </div>
+  <p class="lede after">Each advisor is a persona inspired by the public work of a well-known business thinker. They are independent creations and aren't affiliated with or endorsed by these thinkers.</p>
+</main>
+<script>
+  for (const img of document.querySelectorAll<HTMLImageElement>(".figure")) {
+    const done = () => img.classList.add("loaded");
+    img.complete ? done() : (img.addEventListener("load", done, { once: true }), img.addEventListener("error", done, { once: true }));
+  }
+</script>
+<script>
+  // PostHog via the first-party /ingest proxy.
+  import posthog from "posthog-js";
+  import { POSTHOG_KEY } from "../posthog";
+
+  posthog.init(POSTHOG_KEY, {
+    api_host: "/ingest",
+    ui_host: "https://us.posthog.com",
+    defaults: "2025-11-30",
+    capture_exceptions: true,
+    debug: import.meta.env.DEV,
+  });
+
+  document.addEventListener("click", (event) => {
+    const link = (event.target as Element).closest?.("a.btn");
+    if (link) posthog.capture("get_bot_clicked", { advisor: link.closest("article")?.querySelector("h2")?.textContent });
+  });
+</script>
+<script>
+  import { play, setTheme } from "cuelume";
+  setTheme("bubble");
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+  const ease = "cubic-bezier(0.23, 1, 0.32, 1)";
+  for (const el of document.querySelectorAll<HTMLElement>(".figure")) {
+    el.addEventListener("click", () => {
+      play("select");
+      if (reduced.matches) return;
+      for (const a of el.getAnimations()) a.cancel();
+      el.animate(
+        [
+          { translate: "0 0", scale: "1 1", rotate: "0deg", easing: "cubic-bezier(0.23, 1, 0.32, 1)" },
+          { translate: "0 0", scale: "1.07 .93", rotate: "0deg", offset: 0.14, easing: "cubic-bezier(0.23, 1, 0.32, 1)" },
+          { translate: "0 -14px", scale: ".96 1.05", rotate: "-2deg", offset: 0.46, easing: "cubic-bezier(0.55, 0, 0.75, 0.3)" },
+          { translate: "0 0", scale: "1.05 .95", rotate: "0.4deg", offset: 0.74, easing: "cubic-bezier(0.34, 1.56, 0.64, 1)" },
+          { translate: "0 0", scale: "1 1", rotate: "0deg" },
+        ],
+        { duration: 560 },
+      );
+    });
+  }
+</script>
+</body>
+</html>
