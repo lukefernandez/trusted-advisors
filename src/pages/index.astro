@@ -104,8 +104,8 @@ const ADVISORS = [
   @media (max-width:639px) {
     .wrap { padding:0 20px; }
     header .wrap { height:64px; }
-    .hero { padding:44px 0 36px; }
-    h1 { font-size:clamp(30px,8.4vw,36px); line-height:1.1; max-width:16ch; }
+    .hero { padding:44px 0 56px; }
+    h1 { font-size:clamp(28px,7.6vw,34px); line-height:1.1; max-width:none; }
     .grid { grid-template-columns:1fr; gap:48px; padding-bottom:40px; }
     .card.has-figure { gap:16px; }
     .figure { width:76px; }
@@ -137,12 +137,12 @@ const ADVISORS = [
     {ADVISORS.map((a, i) => a.figure ? (
       <article class="card has-figure" style={`--i:${i}`}>
         <img class="figure" src={a.figure} alt={a.name} width="331" height="706" decoding="async" />
-        <div class="body"><h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Add to Grok Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Get the skill</a></div></div>
+        <div class="body"><h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Add to Grok Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Download skill</a></div></div>
       </article>
     ) : (
       <article class="card" style={`--i:${i}`}>
         <div class="avatar">{a.image ? <img src={a.image} alt="" /> : a.initials}</div>
-        <h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Add to Grok Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Get the skill</a></div>
+        <h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Add to Grok Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Download skill</a></div>
       </article>
     ))}
   </div>
