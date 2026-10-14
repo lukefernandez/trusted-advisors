@@ -1,9 +1,16 @@
 ---
+import { Picture } from "astro:assets";
+import startupMentor from "../assets/startup-mentor-full.jpg";
+import growthCoach from "../assets/growth-coach-full.jpg";
+import productVisionary from "../assets/product-visionary-full.jpg";
+import firstPrinciples from "../assets/first-principles-full.jpg";
+import leverageCoach from "../assets/leverage-coach-full.jpg";
+import commsStrategist from "../assets/comms-strategist-full.jpg";
 const ADVISORS = [
   {
     name: "Startup Mentor",
     initials: "SM",
-    figure: "/startup-mentor-full.jpg",
+    figure: startupMentor,
     description:
       "Helps founders make something people want, talk to users, and grow from zero. Inspired by the work of Paul Graham.",
     href: "https://x.ai/bot/OR9xaJi0ap3jtuirzUAAU",
@@ -13,7 +20,7 @@ const ADVISORS = [
     name: "Growth Coach",
     initials: "GC",
     image: "/growth-coach.png",
-    figure: "/growth-coach-full.jpg",
+    figure: growthCoach,
     description:
       "Helps business owners grow their businesses, build better offers, and make more sales. Inspired by the work of Alex Hormozi.",
     href: "https://x.ai/bot/DM-Hu5vKEEuCGhWPGtG-b",
@@ -22,7 +29,7 @@ const ADVISORS = [
   {
     name: "Product Visionary",
     initials: "PV",
-    figure: "/product-visionary-full.jpg",
+    figure: productVisionary,
     description:
       "Helps founders build products people love through taste, focus, and saying no to almost everything. Inspired by the work of Steve Jobs.",
     href: "https://x.ai/bot/pOWbtYiP9qDudJ7KJXTwz",
@@ -31,7 +38,7 @@ const ADVISORS = [
   {
     name: "First Principles Thinker",
     initials: "FP",
-    figure: "/first-principles-full.jpg",
+    figure: firstPrinciples,
     description:
       "Helps founders break hard problems down to the fundamentals and rebuild bold, better solutions. Inspired by the work of Elon Musk.",
     href: "https://x.ai/bot/extJjW6Rc37NOO4X2Dn71",
@@ -40,7 +47,7 @@ const ADVISORS = [
   {
     name: "Modern Philosopher",
     initials: "MP",
-    figure: "/leverage-coach-full.jpg",
+    figure: leverageCoach,
     description:
       "Helps you build wealth without getting lucky, make better decisions, and find peace along the way. Inspired by the work of Naval Ravikant.",
     href: "https://x.ai/bot/ahniZNOmREahmxbyPe788",
@@ -49,7 +56,7 @@ const ADVISORS = [
   {
     name: "Comms Strategist",
     initials: "CS",
-    figure: "/comms-strategist-full.jpg",
+    figure: commsStrategist,
     description:
       "Helps leaders go direct, tell their own story, and win the narrative without relying on the press. Inspired by the work of Lulu Cheng Meservey.",
     href: "https://x.ai/bot/L5KyOBJoM0dGifDH2Y4x3",
@@ -64,10 +71,12 @@ const ADVISORS = [
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Trusted Advisors</title>
 <meta name="description" content="AI advisors that give great business advice">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="/fonts/eb-garamond-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin>
 <style is:global>
+  @font-face { font-family:"EB Garamond"; font-style:normal; font-weight:400 800; font-display:swap; src:url(/fonts/eb-garamond-latin.woff2) format("woff2"); }
+  @font-face { font-family:"Geist"; font-style:normal; font-weight:100 900; font-display:swap; src:url(/fonts/geist-latin.woff2) format("woff2"); }
+  .card.has-figure > picture { display:flex; flex:none; align-self:flex-end; }
   :root { --bg:#fff; --text:#0a0a0a; --muted:#6b6b6b; --border:#e8e8e8; --soft:#f5f5f5; --section-gap:80px; }
   @media (max-width:900px) { :root { --section-gap:72px; } }
   @media (max-width:639px) { :root { --section-gap:56px; } }
@@ -98,7 +107,7 @@ const ADVISORS = [
   .btn-2 { background:#ececec; color:var(--text); }
   .btn:focus-visible { outline:2px solid var(--text); outline-offset:3px; }
   .card.has-figure { flex-direction:row; align-items:center; gap:20px; padding:0; border:none; }
-  .figure { width:96px; height:auto; flex:none; align-self:flex-end; }
+  .figure { width:96px; height:auto; aspect-ratio:331/706; flex:none; align-self:flex-end; }
   .body { display:flex; flex-direction:column; gap:12px; }
   @media (prefers-reduced-motion: reduce) { .figure { animation:none; } }
   .body { min-width:0; }
@@ -140,7 +149,7 @@ const ADVISORS = [
   <div class="grid">
     {ADVISORS.map((a, i) => a.figure ? (
       <article class="card has-figure" style={`--i:${i}`}>
-        <img class="figure" src={a.figure} alt={a.name} width="331" height="706" decoding="async" />
+        <Picture class="figure" pictureAttributes={{ class: "figure-pic" }} src={a.figure} formats={["avif", "webp"]} fallbackFormat="jpg" widths={[192, 288]} sizes="96px" alt={a.name} width={331} height={706} decoding="async" loading={i < 2 ? "eager" : "lazy"} fetchpriority={i < 2 ? "high" : undefined} />
         <div class="body"><h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Add to Grok Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Download skill</a></div></div>
       </article>
     ) : (
@@ -159,31 +168,43 @@ const ADVISORS = [
   }
 </script>
 <script>
-  // PostHog via the first-party /ingest proxy.
-  import posthog from "posthog-js";
+  // PostHog via the first-party /ingest proxy, loaded after the page is idle so it stays off the critical path.
   import { POSTHOG_KEY } from "../posthog";
-
-  posthog.init(POSTHOG_KEY, {
-    api_host: "/ingest",
-    ui_host: "https://us.posthog.com",
-    defaults: "2025-11-30",
-    capture_exceptions: true,
-    debug: import.meta.env.DEV,
+  type PH = typeof import("posthog-js").default;
+  let ph: PH | undefined;
+  const queued: Array<(p: PH) => void> = [];
+  const load = () => import("posthog-js").then(({ default: posthog }) => {
+    posthog.init(POSTHOG_KEY, {
+      api_host: "/ingest",
+      ui_host: "https://us.posthog.com",
+      defaults: "2025-11-30",
+      capture_exceptions: true,
+      debug: import.meta.env.DEV,
+    });
+    ph = posthog;
+    for (const f of queued.splice(0)) f(posthog);
   });
+  const idle = (cb: () => void) => ("requestIdleCallback" in window ? requestIdleCallback(cb, { timeout: 3000 }) : setTimeout(cb, 1500));
+  document.readyState === "complete" ? idle(load) : addEventListener("load", () => idle(load), { once: true });
 
   document.addEventListener("click", (event) => {
     const link = (event.target as Element).closest?.("a.btn");
-    if (link) posthog.capture("get_bot_clicked", { advisor: link.closest("article")?.querySelector("h2")?.textContent });
+    if (!link) return;
+    const advisor = link.closest("article")?.querySelector("h2")?.textContent;
+    const send = (p: PH) => p.capture("get_bot_clicked", { advisor });
+    ph ? send(ph) : queued.push(send);
   });
 </script>
 <script>
-  import { play, setTheme } from "cuelume";
-  setTheme("bubble");
+  // The click sound loads on the first sign of interaction, not on page load.
+  let sound: Promise<typeof import("cuelume")> | undefined;
+  const loadSound = () => (sound ??= import("cuelume").then((m) => (m.setTheme("bubble"), m)));
+  for (const t of ["pointerdown", "pointerover", "touchstart", "keydown", "scroll"]) addEventListener(t, loadSound, { once: true, passive: true });
   const reduced = matchMedia("(prefers-reduced-motion: reduce)");
   const ease = "cubic-bezier(0.23, 1, 0.32, 1)";
   for (const el of document.querySelectorAll<HTMLElement>(".figure")) {
     el.addEventListener("click", () => {
-      play("select");
+      loadSound().then((m) => m.play("select"));
       if (reduced.matches) return;
       for (const a of el.getAnimations()) a.cancel();
       el.animate(
