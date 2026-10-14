@@ -120,12 +120,12 @@ const ADVISORS = [
     {ADVISORS.map((a, i) => a.figure ? (
       <article class="card has-figure" style={`--i:${i}`}>
         <img class="figure" src={a.figure} alt={a.name} width="331" height="706" decoding="async" />
-        <div class="body"><h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Add to Grok Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Get the Skill</a></div></div>
+        <div class="body"><h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Add to Grok Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Get the skill</a></div></div>
       </article>
     ) : (
       <article class="card" style={`--i:${i}`}>
         <div class="avatar">{a.image ? <img src={a.image} alt="" /> : a.initials}</div>
-        <h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Add to Grok Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Get the Skill</a></div>
+        <h2>{a.name}</h2><p>{a.description}</p><div class="btns"><a class="btn" href={a.href}>Add to Grok Bot</a><a class="btn btn-2" href={a.skill} target="_blank" rel="noopener">Get the skill</a></div>
       </article>
     ))}
   </div>
