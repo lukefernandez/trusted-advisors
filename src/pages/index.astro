@@ -89,7 +89,10 @@ const ADVISORS = [
   .hero { padding:72px 0 var(--section-gap); text-align:center; display:flex; flex-direction:column; align-items:center; }
   h1 { font-family:"EB Garamond",Georgia,serif; font-size:clamp(30px,4.8vw,46px); line-height:1.05; letter-spacing:-0.015em; font-weight:500; margin:0; max-width:30ch; text-wrap:pretty; }
   .lede { color:var(--muted); font-size:17px; max-width:44ch; margin:20px auto 0; text-wrap:balance; }
-  .lede.after { text-align:center; margin:var(--section-gap) auto 0; padding-bottom:80px; max-width:56ch; text-wrap:pretty; }
+  .proof { margin:var(--section-gap) auto 0; padding-top:var(--section-gap); border-top:1px solid var(--border); text-align:center; display:flex; flex-direction:column; align-items:center; }
+  .stat { margin:0; font-family:"EB Garamond",Georgia,serif; font-weight:500; font-size:clamp(64px,9vw,96px); line-height:.9; letter-spacing:-0.03em; font-variant-numeric:lining-nums; }
+  .stat-label { margin:14px 0 0; color:var(--muted); font-size:15px; max-width:34ch; text-wrap:balance; }
+  .lede.after { text-align:center; margin:calc(var(--section-gap) * .75) auto 0; padding-bottom:80px; max-width:56ch; text-wrap:pretty; }
   .grid { display:grid; gap:40px 24px; grid-template-columns:repeat(2,minmax(0,1fr)); padding-bottom:0; }
   .card { border:1px solid var(--border); border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:16px; }
   .avatar { width:72px; height:72px; border-radius:999px; background:var(--soft); display:grid; place-items:center; font-weight:600; overflow:hidden; }
@@ -145,7 +148,6 @@ const ADVISORS = [
 <main class="wrap">
   <section class="hero">
     <h1>Chat with some of the most impactful minds of our time.</h1>
-    <p class="lede">In blind, AI-judged tests, the advisors beat the same model without their skills <span style="white-space:nowrap">92% of the time.</span></p>
   </section>
   <div class="grid">
     {ADVISORS.map((a, i) => a.figure ? (
@@ -160,6 +162,10 @@ const ADVISORS = [
       </article>
     ))}
   </div>
+  <section class="proof" aria-label="Test results">
+    <p class="stat">92%</p>
+    <p class="stat-label">win rate in blind, AI-judged tests against the same model without the advisors&rsquo; skills</p>
+  </section>
   <p class="lede after">Each advisor is a persona inspired by the public work of a well-known business thinker. They are independent creations and aren't affiliated with or endorsed by these thinkers.</p>
 </main>
 <script>
