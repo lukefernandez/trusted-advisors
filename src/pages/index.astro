@@ -91,9 +91,8 @@ const ADVISORS = [
   .lede { color:var(--muted); font-size:17px; max-width:44ch; margin:20px auto 0; text-wrap:balance; }
   .proof { margin:var(--section-gap) auto 0; text-align:center; display:flex; flex-direction:column; align-items:center; }
   .stat { margin:0; font-family:"EB Garamond",Georgia,serif; font-weight:500; font-size:clamp(38px,5vw,52px); line-height:1; letter-spacing:-0.02em; font-variant-numeric:lining-nums; }
-  .stat-label { margin:12px 0 0; color:var(--muted); font-size:15px; max-width:34ch; text-wrap:balance; }
+  .stat-label { margin:12px 0 0; color:var(--muted); font-size:17px; max-width:56ch; text-wrap:pretty; }
   .lede.after { text-align:center; margin:calc(var(--section-gap) * .75) auto 0; padding-bottom:80px; max-width:56ch; text-wrap:pretty; }
-  @media (min-width:901px) { .stat-label { max-width:none; } .lede.after { max-width:76ch; } }
   .grid { display:grid; gap:40px 24px; grid-template-columns:repeat(2,minmax(0,1fr)); padding-bottom:0; }
   .card { border:1px solid var(--border); border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:16px; }
   .avatar { width:72px; height:72px; border-radius:999px; background:var(--soft); display:grid; place-items:center; font-weight:600; overflow:hidden; }
@@ -129,7 +128,7 @@ const ADVISORS = [
     .card p { font-size:15px; line-height:1.5; }
     .btns { gap:8px; }
     .btns .btn { min-height:38px; padding:0 14px; font-size:13.5px; }
-    .lede.after { font-size:15px; padding-bottom:56px; }
+    .lede.after { font-size:15px; padding-bottom:56px; } .stat-label { font-size:15px; }
   }
   @media (max-width:360px) { .btns .btn { flex:1 1 100%; justify-content:center; } }
   .soon { border-style:dashed; justify-content:center; align-items:center; color:var(--muted); font-size:14px; min-height:160px; }
