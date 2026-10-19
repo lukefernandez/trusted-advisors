@@ -88,8 +88,8 @@ const ADVISORS = [
   .brand img { width:30px; height:30px; display:block; }
   .hero { padding:72px 0 var(--section-gap); text-align:center; display:flex; flex-direction:column; align-items:center; }
   h1 { font-family:"EB Garamond",Georgia,serif; font-size:clamp(30px,4.8vw,46px); line-height:1.05; letter-spacing:-0.015em; font-weight:500; margin:0; max-width:30ch; text-wrap:pretty; }
-  .lede.after { text-align:center; margin:var(--section-gap) auto 0; padding-bottom:80px; }
-  .lede { color:var(--muted); font-size:17px; max-width:56ch; margin:20px auto 0; text-wrap:pretty; }
+  .lede { color:var(--muted); font-size:17px; max-width:44ch; margin:20px auto 0; text-wrap:balance; }
+  .lede.after { text-align:center; margin:var(--section-gap) auto 0; padding-bottom:80px; max-width:56ch; text-wrap:pretty; }
   .grid { display:grid; gap:40px 24px; grid-template-columns:repeat(2,minmax(0,1fr)); padding-bottom:0; }
   .card { border:1px solid var(--border); border-radius:16px; padding:24px; display:flex; flex-direction:column; gap:16px; }
   .avatar { width:72px; height:72px; border-radius:999px; background:var(--soft); display:grid; place-items:center; font-weight:600; overflow:hidden; }
@@ -145,6 +145,7 @@ const ADVISORS = [
 <main class="wrap">
   <section class="hero">
     <h1>Chat with some of the most impactful minds of our time.</h1>
+    <p class="lede">In blind, AI-judged tests, the advisors beat the same model without their skills <span style="white-space:nowrap">92% of the time.</span></p>
   </section>
   <div class="grid">
     {ADVISORS.map((a, i) => a.figure ? (
